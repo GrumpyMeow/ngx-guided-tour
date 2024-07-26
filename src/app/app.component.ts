@@ -22,7 +22,7 @@ export class AppComponent {
             },
             {
                 title: 'General page step',
-                content: 'We have the concept of general page steps so that a you can introuce a user to a page or non specific instructions',
+                content: 'We have the concept of general page steps so that a you can introduce a user to a page or non specific instructions'
             },
             {
                 title: 'Positioning',
