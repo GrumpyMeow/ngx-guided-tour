@@ -1,10 +1,10 @@
-import { debounceTime } from 'rxjs/operators';
+import { DOCUMENT } from '@angular/common';
 import { ErrorHandler, Inject, Injectable } from '@angular/core';
-import { Observable, Subject, fromEvent } from 'rxjs';
-import { GuidedTour, TourStep, Orientation, OrientationConfiguration } from './guided-tour.constants';
-import { cloneDeep } from 'lodash';
-import { DOCUMENT } from "@angular/common";
-import { WindowRefService } from "./windowref.service";
+import cloneDeep from 'lodash-es/cloneDeep';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { GuidedTour, Orientation, OrientationConfiguration, TourStep } from './guided-tour.constants';
+import { WindowRefService } from './windowref.service';
 
 @Injectable()
 export class GuidedTourService {
@@ -22,7 +22,7 @@ export class GuidedTourService {
     constructor(
         public errorHandler: ErrorHandler,
         private windowRef: WindowRefService,
-        @Inject(DOCUMENT) private dom
+        @Inject(DOCUMENT) private dom: Document
     ) {
         this.guidedTourCurrentStepStream = this._guidedTourCurrentStepSubject.asObservable();
         this.guidedTourOrbShowingStream = this._guidedTourOrbShowingSubject.asObservable();
@@ -54,7 +54,7 @@ export class GuidedTourService {
             this._setFirstAndLast();
             if (this._currentTour.steps[this._currentTourStepIndex].action) {
                 this._currentTour.steps[this._currentTourStepIndex].action();
-                // Usually an action is opening something so we need to give it time to render.
+                // Usually an action is opening something, so we need to give it time to render.
                 setTimeout(() => {
                     if (this._checkSelectorValidity()) {
                         this._guidedTourCurrentStepSubject.next(this.getPreparedTourStep(this._currentTourStepIndex));

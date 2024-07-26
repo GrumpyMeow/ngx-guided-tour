@@ -1,0 +1,90 @@
+<div *ngIf="currentTourStep && selectedElementRect && isOrbShowing"
+     (mouseenter)="handleOrb()"
+     class="tour-orb tour-{{ currentTourStep.orientation }}"
+     [style.top.px]="orbTopPosition"
+     [style.left.px]="orbLeftPosition"
+     [style.transform]="orbTransform">
+    <div class="tour-orb-ring"></div>
+</div>
+<div *ngIf="currentTourStep && !isOrbShowing">
+    <div class="guided-tour-user-input-mask"
+         (click)="backdropClick($event)"
+         (keydown.escape)="backdropClick($event)">
+    </div>
+    <div class="guided-tour-spotlight-overlay"
+         [style.top.px]="overlayTop"
+         [style.left.px]="overlayLeft"
+         [style.height.px]="overlayHeight"
+         [style.width.px]="overlayWidth">
+    </div>
+</div>
+<div *ngIf="currentTourStep && !isOrbShowing">
+    <div #tourStep *ngIf="currentTourStep"
+         class="tour-step tour-{{ currentTourStep.orientation }}"
+         [ngClass]="{
+                    'page-tour-step': !currentTourStep.selector
+                }"
+         [style.top.px]="(currentTourStep.selector && selectedElementRect ? topPosition : null)"
+         [style.left.px]="(currentTourStep.selector && selectedElementRect ? leftPosition : null)"
+         [style.width.px]="(currentTourStep.selector && selectedElementRect ? calculatedTourStepWidth : null)"
+         [style.transform]="(currentTourStep.selector && selectedElementRect ? transform : null)">
+        <div *ngIf="currentTourStep.selector" class="tour-arrow"></div>
+        <div class="tour-block">
+            <div *ngIf="
+                        progressIndicatorLocation === progressIndicatorLocations.TopOfTourBlock
+                        && !guidedTourService.onResizeMessage"
+                 class="tour-progress-indicator">
+                <ng-container *ngTemplateOutlet="progress"></ng-container>
+            </div>
+            <h3 class="tour-title" *ngIf="currentTourStep.title && currentTourStep.selector">
+                {{ currentTourStep.title }}
+            </h3>
+            <h2 class="tour-title" *ngIf="currentTourStep.title && !currentTourStep.selector">
+                {{ currentTourStep.title }}
+            </h2>
+            <div class="tour-content" [innerHTML]="currentTourStep.content"></div>
+            <div class="tour-buttons">
+                <button *ngIf="!guidedTourService.onResizeMessage"
+                        (click)="guidedTourService.skipTour()"
+                        class="skip-button link-button">
+                    {{ skipText }}
+                </button>
+                <button *ngIf="!guidedTourService.onLastStep && !guidedTourService.onResizeMessage"
+                        class="next-button"
+                        (click)="guidedTourService.nextStep()">
+                    {{ nextText }}
+                    <ng-container *ngIf="progressIndicatorLocation === progressIndicatorLocations.InsideNextButton">
+                        <ng-container *ngTemplateOutlet="progress"></ng-container>
+                    </ng-container>
+                </button>
+                <button *ngIf="guidedTourService.onLastStep"
+                        class="next-button"
+                        (click)="guidedTourService.nextStep()">
+                    {{ doneText }}
+                </button>
+
+                <button *ngIf="guidedTourService.onResizeMessage"
+                        class="next-button"
+                        (click)="guidedTourService.resetTour()">
+                    {{ closeText }}
+                </button>
+                <button *ngIf="!guidedTourService.onFirstStep && !guidedTourService.onResizeMessage"
+                        class="back-button link-button"
+                        (click)="guidedTourService.backStep()">
+                    {{ backText }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #progress>
+    <ng-container *ngTemplateOutlet="
+                progressIndicator || defaultProgressIndicator;
+                context: { currentStepNumber: guidedTourService.currentTourStepDisplay, totalSteps: guidedTourService.currentTourStepCount }
+            "></ng-container>
+</ng-template>
+<ng-template #defaultProgressIndicator let-currentStepNumber="currentStepNumber" let-totalSteps="totalSteps">
+    <ng-container *ngIf="progressIndicatorLocation === progressIndicatorLocations.InsideNextButton">&nbsp;
+    </ng-container>
+    {{ currentStepNumber }}/{{ totalSteps }}
+</ng-template>

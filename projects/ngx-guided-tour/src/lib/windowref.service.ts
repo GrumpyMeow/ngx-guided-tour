@@ -1,5 +1,5 @@
-import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { isPlatformBrowser } from "@angular/common";
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 function getWindow(): any {
     return window;
@@ -13,11 +13,15 @@ function getMockWindow(): any {
         scrollX: 0,
         pageYOffset: 0,
         pageXOffset: 0,
-        scroll: () => {},
-        scrollTo: () => {},
-        addEventListener: () => {},
-        removeEventListener: () => {},
-    }
+        scroll: () => {
+        },
+        scrollTo: () => {
+        },
+        addEventListener: () => {
+        },
+        removeEventListener: () => {
+        }
+    };
 }
 
 @Injectable()
@@ -32,7 +36,7 @@ export class WindowRefService {
         }
     }
 
-    constructor(@Inject(PLATFORM_ID) platformId) {
+    constructor(@Inject(PLATFORM_ID) platformId: string) {
         this.isBrowser = isPlatformBrowser(platformId);
     }
 }

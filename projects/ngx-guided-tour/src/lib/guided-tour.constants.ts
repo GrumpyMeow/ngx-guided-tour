@@ -1,4 +1,3 @@
-
 export interface TourStep {
     /** Selector for element that will be highlighted */
     selector?: string;
@@ -41,7 +40,7 @@ export interface GuidedTour {
         title?: string;
         /** Resize dialog text */
         content: string;
-    }
+    };
     /**
      * Prevents the tour from advancing by clicking the backdrop.
      * This should only be set if you are completely sure your tour is displaying correctly on all screen sizes otherwise a user can get stuck.
@@ -72,4 +71,4 @@ export enum ProgressIndicatorLocation {
     InsideNextButton = 'inside-next-button',
     TopOfTourBlock = 'top-of-tour-block',
     None = 'none',
-}  
+}

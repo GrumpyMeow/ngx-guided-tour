@@ -6,8 +6,8 @@ describe('AppComponent', () => {
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [
-                AppModule,
-            ],
+                AppModule
+            ]
         }).compileComponents();
     }));
 
@@ -18,11 +18,9 @@ describe('AppComponent', () => {
     });
 
 
-
-    it(`should have as title 'ngx-guided-tour-demo'`, () => {
+    it('should have as title \'ngx-guided-tour-demo', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
-        console.log('App', app);
         expect(app.title).toEqual('ngx-guided-tour-demo');
     });
 
