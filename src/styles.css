@@ -1,2 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'bootstrap/dist/css/bootstrap.min.css';
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.jumbotron {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.jumbotron img {
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.demo-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.center-content {
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 2rem;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.center-content img {
+    margin: 30px;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: .75rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+.tour-middle-content, .tour-scroll {
+    display: block;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Remove default margin from br tags */
+br {
+    margin: 0;
+    line-height: 0;
+}
+
+/* Add some spacing between sections */
+.center-content + .center-content {
+    margin-top: 2rem;
+}
+
+/* Make the last center-content div at the bottom stand out */
+.center-content:last-of-type {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .demo-title {
+        font-size: 2rem;
+    }
+
+    .center-content {
+        padding: 1rem;
+    }
+}
