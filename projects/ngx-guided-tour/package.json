@@ -1,10 +1,10 @@
 {
   "name": "grumpymeow-ngx-guided-tour",
-  "version": "18.0.0",
+  "version": "17.0.0",
   "description": "Guided tour for your Angular applications.",
   "peerDependencies": {
-    "@angular/common": ">=18.0.0",
-    "@angular/core": ">=18.0.0"
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "angular",
     "angular6",
     "angular7",
+    "angular17",
     "angular18",
     "SASS",
     "rxjs",
