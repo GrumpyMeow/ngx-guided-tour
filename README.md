@@ -7,11 +7,11 @@ See a quick demo - [https://lsqlabs.github.io/ngx-guided-tour/](https://lsqlabs.
 
 1. Install npm module:
 
-    `npm install ngx-guided-tour --save`
+    `npm install grumpymeow-ngx-guided-tour --save`
 
 2. Add modules to app.module.ts
 ```typescript
-import {GuidedTourModule, GuidedTourService} from 'ngx-guided-tour';
+import {GuidedTourModule, GuidedTourService} from 'grumpymeow-ngx-guided-tour';
 
 @NgModule({
     imports: [
@@ -35,7 +35,7 @@ Add ngx-guided-tour to your app.component.html .
 Add guided-tour-base-theme.scss to your main style import page. If you want to create your own theme add it after your defined constants.
 
 ```scss
-@import '../node_modules/ngx-guided-tour/scss/guided-tour-base-theme.scss';
+@import '../node_modules/grumpymeow-ngx-guided-tour/scss/guided-tour-base-theme.scss';
 ```
 Define your tour using the GuidedTour type:
 

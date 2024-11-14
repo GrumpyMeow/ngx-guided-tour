@@ -7,6 +7,9 @@ MIT
 @angular/platform-browser
 MIT
 
+grumpymeow-ngx-guided-tour
+MIT
+
 lodash-es
 MIT
 Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
@@ -57,9 +60,6 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 
-
-ngx-guided-tour
-MIT
 
 rxjs
 Apache-2.0

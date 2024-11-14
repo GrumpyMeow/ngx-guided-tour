@@ -1,5 +1,5 @@
 {
-  "name": "ngx-guided-tour",
+  "name": "grumpymeow-ngx-guided-tour",
   "version": "18.0.0",
   "description": "Guided tour for your Angular applications.",
   "peerDependencies": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lsqlabs/ngx-guided-tour.git"
+    "url": "git+https://github.com/GrumpyMeow/ngx-guided-tour.git"
   },
   "keywords": [
     "guided",
@@ -31,9 +31,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lsqlabs/ngx-guided-tour/issues"
+    "url": "https://github.com/GrumpyMeow/ngx-guided-tour/issues"
   },
-  "homepage": "https://github.com/lsqlabs/ngx-guided-tour#readme",
+  "homepage": "https://github.com/GrumpyMeow/ngx-guided-tour#readme",
   "ngPackage": {
     "lib": {
       "entryFile": "src/public_api.ts"
